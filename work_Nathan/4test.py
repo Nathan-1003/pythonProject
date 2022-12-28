@@ -4,6 +4,7 @@ import pymysql  #pip3 install PyMySQL ,pip install mysql-connector-python
 import flask
 import datetime
 from flask import Flask, render_template
+from flask_cors import CORS
 
 db = pymysql.connect(host='34.142.180.39',
                      port=13306,
@@ -31,13 +32,14 @@ print(data)
 cur.close()
 
 app = flask.Flask(__name__)
-@app.route("/")
+CORS(app)
 
+@app.route("/")
 def hello():
     return(data)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=4999)
 
 
 
@@ -46,17 +48,3 @@ if __name__ == '__main__':
 # for row in cur:
 #     print(row)
 # cur.close()
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="jquery/jquery.js"></script>
-    <meta charset="UTF-8">
-    <title>Case4</title>
-</head>
-<body>Hello word
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js"></script>
 
+    <script src="jquery/jquery.js"></script>
+    <script>
+            $.ajax({
+            url: "http://127.0.0.1:4999",
+  type: "GET",
+  headers: {
+<!--    "Access-Control-Allow-Origin": "*"-->
+  },
+  success: function(response) {
+
+    $('body').text(response);
+  },
+  error: function(xhr, status, error) {
+    // 處理請求失敗的情況
+  }
+});
+
+    </script>
+    <meta charset="UTF-8">
+    <title>Channel</title>
+</head>
+<body>
+    HELLO
 </body>
 </html>
