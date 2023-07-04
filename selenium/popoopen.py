@@ -26,14 +26,21 @@ class MyWebDriver:
         search.send_keys("台積電")
         search.send_keys(Keys.ENTER)
         time.sleep(2)
+        print(self.driver.title)
         #titles = self.driver.find_elements(By.TAG_NAME, "a")    #列出該頁所有關於a的Name屬性
-        titles = self.driver.find_elements(By.__class__, "r-ent")    #列出該頁所有關於a的Name屬性
+        #titles = self.driver.find_elements(By.XPATH,'//*[@id="main-container"]a')
+        titles = self.driver.find_elements(By.XPATH,'//*[@id="main-container"]/div[2]//a')
+
         for title in titles:     # 遍歷元素並獲取文本內容
             a_text = title.text
             print(a_text)
-
 #<input class="query" type="text" name="q" value="" placeholder="搜尋文章⋯">
 
 if __name__ == "__main__":
     web_driver = MyWebDriver() #將類別改為物件
     web_driver.search_on_ptt()
+#
+#
+# //*[@id="main-container"]/div[2]/div[2]/div[2]
+# //*[@id="main-container"]/div[2]/div[3]/div[2]
+
