@@ -11,17 +11,15 @@ class MyWebDriver:
         options = Options()
         options.chrome_executable_path = "/Users/menglungtsai/Desktop/chromedriver_mac_arm64/chromedriver"
         self.driver = webdriver.Chrome(options=options)
-        self.driver.set_window_size(1024, 768)
+        self.driver.set_window_size(1024, 768
 
         #print(driver.page_source) #取網頁原始碼
 
     def search_on_ptt(self):
         self.driver.get("https://www.ptt.cc/bbs/Stock/index.html")
-        #time.sleep(3)
         search = self.driver.find_element(By.NAME, "q") #安德說用這，會需要用到from selenium.webdriver.common.by import By
         #elem = driver.find_element_by_name("q")
         search.send_keys("TSMC")
-        #time.sleep(1)
         search.clear()
         search.send_keys("台積電")
         search.send_keys(Keys.ENTER)
