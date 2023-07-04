@@ -2,17 +2,38 @@ from selenium import webdriver
 import time
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
 
-options=Options()
 
-options.chrome_executable_path="/Users/menglungtsai/Desktop/chromedriver_mac_arm64/chromedriver"
+class MyWebDriver:
+    def __init__(self):
+        options = Options()
+        options.chrome_executable_path = "/Users/menglungtsai/Desktop/chromedriver_mac_arm64/chromedriver"
+        self.driver = webdriver.Chrome(options=options)
+        self.driver.set_window_size(1024, 768)
 
-driver=webdriver.Chrome(options=options)
+        #print(driver.page_source) #取網頁原始碼
 
-driver.set_window_size(1024, 768)
+    def search_on_ptt(self):
+        self.driver.get("https://www.ptt.cc/bbs/Stock/index.html")
+        #time.sleep(3)
+        search = self.driver.find_element(By.NAME, "q") #安德說用這，會需要用到from selenium.webdriver.common.by import By
+        #elem = driver.find_element_by_name("q")
+        search.send_keys("TSMC")
+        #time.sleep(1)
+        search.clear()
+        search.send_keys("台積電")
+        search.send_keys(Keys.ENTER)
+        time.sleep(2)
+        #titles = self.driver.find_elements(By.TAG_NAME, "a")    #列出該頁所有關於a的Name屬性
+        titles = self.driver.find_elements(By.__class__, "r-ent")    #列出該頁所有關於a的Name屬性
+        for title in titles:     # 遍歷元素並獲取文本內容
+            a_text = title.text
+            print(a_text)
 
-driver.get("https://www.ptt.cc/bbs/Stock/index.html")
+#<input class="query" type="text" name="q" value="" placeholder="搜尋文章⋯">
 
-print(driver.page_source) #取網頁原始碼
-
-time.sleep(3)
+if __name__ == "__main__":
+    web_driver = MyWebDriver() #將類別改為物件
+    web_driver.search_on_ptt()

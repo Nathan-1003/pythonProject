@@ -7,9 +7,6 @@ def test_logging():
     print(r.text)
     # for key,value in (r.json).items():
     #      print('{key}:{value}'.format(key=key, value=value))
-
-
-
 if __name__== '__main__':
     test_logging()
 
