@@ -11,7 +11,7 @@ class MyWebDriver:
         options = Options()
         options.chrome_executable_path = "/Users/menglungtsai/Desktop/chromedriver_mac_arm64/chromedriver"
         self.driver = webdriver.Chrome(options=options)
-        self.driver.set_window_size(1024, 768
+        self.driver.set_window_size(1024, 768)
 
         #print(driver.page_source) #取網頁原始碼
 
@@ -24,14 +24,22 @@ class MyWebDriver:
         search.send_keys("台積電")
         search.send_keys(Keys.ENTER)
         time.sleep(2)
-        print(self.driver.title)
+        # print(self.driver.title)
         #titles = self.driver.find_elements(By.TAG_NAME, "a")    #列出該頁所有關於a的Name屬性
         #titles = self.driver.find_elements(By.XPATH,'//*[@id="main-container"]a')
         titles = self.driver.find_elements(By.XPATH,'//*[@id="main-container"]/div[2]//a')
-
         for title in titles:     # 遍歷元素並獲取文本內容
             a_text = title.text
             print(a_text)
+
+        Previous = self.driver.find_element(By.XPATH, '//*[@id="action-bar-container"]/div/div[2]/a[2]')
+        Previous.click()
+        time.sleep(2)
+        titles2 = self.driver.find_elements(By.XPATH,'//*[@id="main-container"]/div[2]//a')
+        for title in titles2:     # 遍歷元素並獲取文本內容
+            a_text2 = title.text
+            print('Previous2',a_text2)
+
 #<input class="query" type="text" name="q" value="" placeholder="搜尋文章⋯">
 
 if __name__ == "__main__":
