@@ -1,2 +1,1 @@
-# pythonProject
-# pythonProject
+# Practicing Git
