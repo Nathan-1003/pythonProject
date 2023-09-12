@@ -1,20 +1,20 @@
-#ssc/35754_一球两面_大.js
+#ssc/35755_一球两面_小.js
 import random
 from colorama import Fore, Style
 
 def judge(bets):
     if len(bets) != 5:
         return -1
-    
+
     parsed_bets = [int(item) for item in bets]
 
     for num in parsed_bets:
         if num < 0 or num > 9:
             return -1
 
-    # 第一球大於等於5即為大
+    # 第一球小於等於4即為小
     ball = parsed_bets[0]
-    if ball >= 5:
+    if ball <= 4:
         return 1
 
     return -1
@@ -28,10 +28,7 @@ def generate_lottery_numbers(num_sets):
 
     return list(lottery_numbers)
 
-# 生成3000组不重复的号码
 lottery_sets = generate_lottery_numbers(300)
-
-# 初始化统计变量
 count_1 = 0
 count_minus_1 = 0
 
