@@ -1,4 +1,3 @@
-#ssc/35754_一球两面_大.js
 import random
 from colorama import Fore, Style
 
@@ -28,15 +27,14 @@ def generate_lottery_numbers(num_sets):
 
     return list(lottery_numbers)
 
-# 生成3000组不重复的号码
-lottery_sets = generate_lottery_numbers(300)
+lottery_sets = generate_lottery_numbers(500)
 
 # 初始化统计变量
 count_1 = 0
 count_minus_1 = 0
 
 # 判定每组号码并统计
-for i in range(300):
+for i in range(500):
     result = judge(list(lottery_sets[i]))
     if result == 1:
         count_1 += 1
@@ -48,6 +46,10 @@ for i in range(300):
     # 打印结果为-1的组合
     if result == -1:
         print(f"组合 {i + 1}: {lottery_sets[i]} 结果: {result}")
+
+# 格式化打印每组号码
+formatted_lottery_sets = [",".join(map(str, numbers)) for numbers in lottery_sets]
+print("[" + "],[".join(formatted_lottery_sets) + "]")
 
 print(f"1 的组数: {count_1}")
 print(f"-1 的组数: {count_minus_1}")
