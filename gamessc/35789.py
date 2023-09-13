@@ -1,10 +1,9 @@
-#ssc/35754_一球两面_大.js
 import execjs
 import random
 from colorama import Fore, Style 
 
 #讀取 JavaScript 
-with open('/Users/menglungtsai/pythonProject/gamessc/ssc/35754_一球两面_大.js', 'r') as f:
+with open('/Users/menglungtsai/pythonProject/gamessc/ssc/35789_二球数字_5.js', 'r') as f:
     js_code = f.read()
 
 #編譯 JavaScript 
@@ -16,13 +15,13 @@ def judge(bets):
 
 #生成
 def generate_lottery_numbers(num_sets):
-    lottery_numbers = set()
+    lottery_numbers = []
 
     while len(lottery_numbers) < num_sets:
-        numbers = tuple(random.sample(range(10), 5))
-        lottery_numbers.add(numbers)
+        numbers = tuple(random.choices(range(10), k=5))
+        lottery_numbers.append(numbers)
 
-    return list(lottery_numbers)
+    return lottery_numbers
 
 lottery_sets = generate_lottery_numbers(500)
 count_1 = 0

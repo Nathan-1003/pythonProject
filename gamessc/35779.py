@@ -1,10 +1,9 @@
-#ssc/35754_一球两面_大.js
 import execjs
 import random
 from colorama import Fore, Style 
 
 #讀取 JavaScript 
-with open('/Users/menglungtsai/pythonProject/gamessc/ssc/35754_一球两面_大.js', 'r') as f:
+with open('/Users/menglungtsai/pythonProject/gamessc/ssc/35779_一球数字_5.js', 'r') as f:
     js_code = f.read()
 
 #編譯 JavaScript 
@@ -24,11 +23,11 @@ def generate_lottery_numbers(num_sets):
 
     return list(lottery_numbers)
 
-lottery_sets = generate_lottery_numbers(500)
+lottery_sets = generate_lottery_numbers(300)
 count_1 = 0
 count_minus_1 = 0
 
-for i in range(500):
+for i in range(300):
     result = judge(list(lottery_sets[i]))
     if result == 1:
         count_1 += 1
