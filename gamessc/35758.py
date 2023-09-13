@@ -1,10 +1,9 @@
-#ssc/35754_一球两面_大.js
 import execjs
 import random
 from colorama import Fore, Style 
 
 #讀取 JavaScript 
-with open('/Users/menglungtsai/pythonProject/gamessc/ssc/35754_一球两面_大.js', 'r') as f:
+with open('/Users/menglungtsai/pythonProject/gamessc/ssc/35758_二球两面_大.js', 'r') as f:
     js_code = f.read()
 
 #編譯 JavaScript 
