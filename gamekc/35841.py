@@ -3,7 +3,7 @@ import random
 from colorama import Fore, Style 
 
 # 讀取 JavaScript 
-with open('/Users/menglungtsai/pythonProject/gamekc/kcjs/35840_冠亚和两面_小.js', 'r') as f:
+with open('/Users/menglungtsai/pythonProject/gamekc/kcjs/35841_冠亚和两面_单.js', 'r') as f:
     js_code = f.read()
 
 # 編譯 JavaScript 
@@ -18,7 +18,7 @@ count_1 = 0
 count_minus_1 = 0
 
 # 生成 10 組不重複號碼並判斷
-for i in range(500):
+for i in range(1000):
     combo = random.sample(range(1, 11), 10)
     
     # 呼叫判斷函數並傳遞生成的號碼
@@ -36,4 +36,4 @@ for i in range(500):
 # 輸出統計結果
 print(f"1 的組數: {count_1}")
 print(f"-1 的組數: {count_minus_1}")
-print(f"{Fore.RED} 冠亚和两面_小，冠亚總和小於等於11")
+print(f"{Fore.RED} 冠亚和两面_单")

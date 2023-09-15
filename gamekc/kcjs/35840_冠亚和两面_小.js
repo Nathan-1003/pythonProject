@@ -1,5 +1,5 @@
 function judge(bets) {
-    if (bets.length != 11) {
+    if (bets.length != 10) {
       return -1;
     }
     var parsedBets = bets.map(function (item) {
