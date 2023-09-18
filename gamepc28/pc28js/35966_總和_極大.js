@@ -15,7 +15,7 @@ function judge(bets) {
     }
   }
 
-  const target = [23,24,25,26,27]
+  const target = [22,23,24,25,26,27]
 
   var sum = parsedBets.reduce(function (acc, curr) {
     return acc + curr;

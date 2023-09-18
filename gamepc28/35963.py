@@ -3,7 +3,7 @@ import random
 from colorama import Fore, Style 
 
 # 讀取 JavaScript 
-with open('/Users/menglungtsai/pythonProject/gamepc28/pc28js/35958_總和_大.js', 'r') as f:
+with open('/Users/menglungtsai/pythonProject/gamepc28/pc28js/35963_總和_小單.js', 'r') as f:
     js_code = f.read()
 
 # 編譯 JavaScript 
@@ -21,16 +21,16 @@ for i in range(0, 10):
         for k in range(0, 10):
             total = i + j + k
             combo =[i, j, k]
-            print("當次帶入參數組合:", combo, "總和:", total)
+            #print("當次帶入參數組合:", combo, "總和:", total)
             result = judge(combo)
             if result == 1:
                 count_1 +=1
-                print(Fore.RED + "結果:", str(result) + Style.RESET_ALL)
+                print(Fore.RED + "當次帶入參數組合:", combo, "總和:", total,"結果:", str(result) + Style.RESET_ALL)
             else:
                 count_minus_1 +=1
-                print("結果:", str(result))
+                print("當次帶入參數組合:", combo, "總和:", total, "結果:", str(result))
 
 print("總共生成組合數量:", count)
 print(f"{Fore.RED}結果1的次數:", count_1)
 print("結果-1的次數:", count_minus_1)
-print(f"{Fore.RED}35958_總和_大，总和为14~27")
+print(f"{Fore.RED}35963_總和_小單，总和为1，3，5，7，9，11，13")
